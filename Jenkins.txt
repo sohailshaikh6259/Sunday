@@ -1,0 +1,25 @@
+https://github.com/jenkins-docs/simple-java-maven-app.git
+https://crontab.guru/
+
+
+Jenkins build periodically - examples
+Build every hour:
+H * * * *
+
+Build every 20 minutes:
+H/20 * * * *
+
+Build every 20 minutes 5am to 11pm:
+H/20 5-23 * * *
+
+Build every 20 minutes, work time/days (8am-6pm, MON-FRI) only:
+H/20 8-18 * * 1-5
+
+Build every hour MON-WED and FRI only:
+H * * * 1-3,5
+
+Build every hour, weekends in April and December:
+H * * 4,12 *
+
+Build at 8.30am on July 4:
+30 8 4 7 *
