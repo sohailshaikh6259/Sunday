@@ -1,3 +1,4 @@
+# this file was modified directly on the server
 git --version
 git init
 git add .
@@ -9,7 +10,7 @@ git commit -m "msg" --author "John Smith <johnsmith@example.com>"
 git push origin master
 #force push
 git push -f
-
+# Saturday git lecture.
 git clone https://github.com/username/projectname.git
 
 
@@ -56,7 +57,7 @@ git status -v
 git diff original new
 
 git diff myfile.txt
-
+#Demo for Dance..
 
 #Merge one branch into anothe
 git merge incomingBranch
