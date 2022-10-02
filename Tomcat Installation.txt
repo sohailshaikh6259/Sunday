@@ -1,0 +1,74 @@
+sudo apt update
+sudo apt install openjdk-11-jdk
+sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
+
+
+wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.23/bin/apache-tomcat-10.0.23.tar.gz
+cd /opt
+sudo mkdir tomcat
+sudo tar -xf apache-tomcat-10.0.23.tar.gz -C /opt/tomcat/
+
+sudo chown -R tomcat: /opt/tomcat
+
+sudo sh -c 'chmod +x /opt/tomcat/bin/*.sh'
+readlink -f $(which java) 
+############################################
+sudo nano /etc/systemd/system/tomcat.service
+[Unit]
+Description=Tomcat 9 servlet container
+After=network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headless=true"
+
+Environment="CATALINA_BASE=/opt/tomcat"
+Environment="CATALINA_HOME=/opt/tomcat"
+Environment="CATALINA_PID=/opt/tomcat/temp/tomcat.pid"
+Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+###################################################
+NOTE: Modify the JAVA_HOME variable if the path to your Java installation is different.
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now tomcat
+sudo systemctl status tomcat
+sudo systemctl restart tomcat
+sudo systemctl stop tomcat
+sudo systemctl restart tomcat
+
+Configuring Firewall 
+sudo ufw allow 8080/tcp
+sudo ufw allow 80/tcp
+
+sudo nano /opt/tomcat/conf/tomcat-users.xml
+<tomcat-users>
+<!--
+    Comments
+-->
+   <role rolename="admin-gui"/>
+   <role rolename="manager-gui"/>
+   <user username="admin" password="admin" roles="admin-gui,manager-gui"/>
+</tomcat-users>
+
+===============================================
+
+sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
+sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
+
+
+curl http://localhost:8080
+
+
+https://linuxize.com/post/how-to-install-tomcat-9-on-ubuntu-20-04/

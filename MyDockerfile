@@ -1,0 +1,36 @@
+FROM ubuntu:latest
+Changed for good.0
+MAINTAINER "Sohail Shaikh"
+
+ARG Name=apache2
+
+RUN apt-get update && apt install ${Name} -y 
+
+EXPOSE 80
+ 
+WORKDIR /var/www/html
+RUN rm -f index.html
+
+COPY HelloWorld-0.6.5.jar /var/www/html
+WORKDIR /tmp/
+
+ARG Version=3.8.6
+
+ADD https://dlcdn.apache.org/maven/maven-3/${Version}/binaries/apache-maven-${Version}-bin.tar.gz . 
+
+
+ENV Jenkins_HOME=/var/jenkins_home
+
+ENTRYPOINT apachectl -D FOREGROUND
+#CMD ["apachectl -D FOREGROUND"]
+
+#VOLUME /var/jenkins_home
+
+
+
+
+
+
+
+
+
