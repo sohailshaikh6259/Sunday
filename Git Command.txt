@@ -1,5 +1,6 @@
 # this file was modified directly on the server
 Changed directly in MAIN branch... intentionally
+Trying to push, while the policies are in place.
 git --version
 git init
 git add .
