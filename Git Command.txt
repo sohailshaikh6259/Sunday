@@ -1,5 +1,5 @@
 # this file was modified directly on the server
-Changed directly in MAIN branch... 
+Changed directly in MAIN branch... intentionally
 git --version
 git init
 git add .
