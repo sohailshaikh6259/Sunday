@@ -1,3 +1,5 @@
+#comments
+#new line
 sudo apt update
 sudo apt install openjdk-11-jdk
 sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
