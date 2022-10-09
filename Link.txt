@@ -2,3 +2,4 @@ https://www.jenkins.io/doc/book/pipeline/syntax/
 www.alldevops.cloud
 
 Changed on Local system directly...
+git CLI CHECK
