@@ -1,0 +1,68 @@
+# this file was modified directly on the server
+Changed directly in MAIN branch... intentionally
+Trying to push, while the policies are in place.
+git --version
+git init
+git add .
+git reset <filePath>
+git rm filename
+git commit -m "Initial commit"
+git commit -m "msg" --author "John Smith <johnsmith@example.com>"
+git git git
+git push origin master
+#force push
+git push -f
+# Saturday git lecture.
+git clone https://github.com/username/projectname.git
+
+git git git
+git config --global user.name "Your Name"
+git config --global user.email mail@example.com
+
+
+git branch
+#new branch
+git checkout -b branchname
+git checkout <existing_branch>
+#To delete a branch locally
+git branch -d <branchName>
+#force delete
+git branch -D <branchName>
+
+#rename branch
+git branch -m new_branch_name
+
+git pull origin feature-A
+git fetch origin
+git merge origin/feature-A
+
+#go back to previous commit
+git reflog
+git reset CID
+
+git is awesome
+
+git stash apply
+git stash list
+git stash pop
+git stash drop #remove last 
+git stash pop stash@{2}
+git stash clear
+git commandline
+
+git log
+#Show the changes made in the last 3 commits
+git diff --help
+git status -v
+
+# Comparing branches
+git diff original new
+
+git diff myfile.txt
+#Demo for Dance..
+#Test comment
+#Merge one branch into anothe
+git merge incomingBranch
+git merge --abort
+
+.gitignore
